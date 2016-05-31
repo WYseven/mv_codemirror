@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		
+		<link rel="stylesheet" type="text/css" href="css/codemirror.css">
+		<link rel="stylesheet" type="text/css" href="css/show-hint.css.css">
+		<script src="./js/codemirror.js"></script>
+		<script src="./js/htmlembedded.js"></script>
+		<script src="./js/javascript.js"></script>
+		
+		<script src="./js/css.js"></script>
+		<style>
+			body{
+				margin:0;
+			}
+			.content{
+				min-width: 500px;
+				overflow:hidden;
+			}
+			.code_box{
+				width: 30%;
+				height: 350px;
+				border: 1px solid #000;
+				overflow:hidden;
+				float: left;
+				margin: 0px 1.5%;
+			}
+			.code_box h2{
+				border-bottom:1px solid #ccc;
+				margin:0px;
+				text-indent: 35px;
+				line-height: 30px;
+				font-size: 18px;
+			}
+			.CodeMirror{
+				width: 100%;
+				height: 100%;
+				font-size: 14px;
+			}
+			.line{
+				width: 100%;
+				height: 3px;
+				background: #2795EE;
+				margin: 5px 0px;
+			}
+			.header{
+				height: 40px;
+				line-height: 40px;
+				padding-left: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="header">
+			<input type="button" value="保存" id="btn" />
+		</header>
+		<div class="line"></div>
+		<div class="content">
+			<div class="code_box">
+				<h2>html            </h2>
+				<textarea id="html" name="code1"></textarea>
+			</div>
+			<div class="code_box">
+				<h2>css</h2>
+				<textarea id="css" name="code2"></textarea>
+			</div>
+			<div class="code_box">
+				<h2>iavascript</h2>
+				<textarea id="js" name="code3"></textarea>
+			</div>
+		</div>
+		<div class="line"></div>
+		<script>
+			var re = /\s*\n\s*/g;
+			var editor3 = CodeMirror.fromTextArea(html, {
+				lineNumbers: true,
+				mode:"text/javascript"
+			});
+			var editor2 = CodeMirror.fromTextArea(css, {
+				lineNumbers: true,
+				mode:"text/css"
+			});
+			var editor = CodeMirror.fromTextArea(js, {
+				lineNumbers: true,
+				mode:"text/javascript"
+			});
+
+			btn.onclick = function (){
+				console.log( editor3.getValue().replace(re,"") );	
+				console.log( editor2.getValue() );	
+				console.log( editor.getValue() );	
+			};
+
+		</script>
+	</body>
+</html>
